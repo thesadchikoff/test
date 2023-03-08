@@ -1,0 +1,52 @@
+.bad_rate {
+	background: rgba(242, 11, 34, 0.17);
+	color: #f31b26;
+	padding: 7px;
+	border-radius: 10px;
+
+	svg {
+		circle {
+			stroke: #f31b26;
+		}
+
+		path {
+			stroke: #f31b26;
+		}
+	}
+}
+
+.normal_rate {
+	background: rgba(243, 196, 27, 0.17);
+	color: #F3C41B;
+	padding: 7px;
+	border-radius: 10px;
+
+	svg {
+		circle {
+			stroke: #F3C41B;
+		}
+
+		path {
+			stroke: #F3C41B;
+		}
+	}
+
+}
+
+.good_rate {
+	background: rgba(27, 243, 41, 0.17);
+	color: #09b820;
+	padding: 7px;
+	border-radius: 10px;
+
+	svg {
+		circle {
+			stroke: #09b820;
+		}
+
+		path {
+			stroke: #09b820;
+		}
+	}
+
+}
