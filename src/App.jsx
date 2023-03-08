@@ -28,15 +28,17 @@ function App() {
 					<div className='flex mobile:m-0 mobile:flex-col desktop:flex-row desktop:flex-wrap mobile:gap-10 desktop:gap-20'>
 						{movies.map(movie => {
 							return (
-								<Movie
-									title={movie.nameRu}
-									enTitle={movie.nameEn}
-									countries={movie.countries}
-									genres={movie.genres}
-									year={movie.year}
-									avatar={movie.posterUrl}
-									rate={movie?.rating}
-								/>
+								<Link to={`/movie/${filmId}`}>
+									<Movie
+										title={movie.nameRu}
+										enTitle={movie.nameEn}
+										countries={movie.countries}
+										genres={movie.genres}
+										year={movie.year}
+										avatar={movie.posterUrl}
+										rate={movie?.rating}
+									/>
+								</Link>
 							)
 						})}
 					</div>
