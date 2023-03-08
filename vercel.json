@@ -2,6 +2,7 @@
 	"rewrites": [
 		{ "source": "/", "destination": "/" },
 		{ "source": "/popular", "destination": "/" },
+		{ "source": "/movie/:id", "destination": "/" },
 		{
 			"source": "/proxy/:match*",
 			"destination": "https://example.com/:match*"
