@@ -56,9 +56,13 @@ const Movie = () => {
 							<div
 								className={`${getRate(
 									movie.ratingKinopoisk
-								)} flex items-center gap-2`}>
+								)} flex items-center gap-2 font-bold`}>
 								<Rate />
-								{movie.ratingKinopoisk && <span>{movie.ratingKinopoisk}</span>}
+								{movie.ratingKinopoisk ? (
+									<span>{movie.ratingKinopoisk}</span>
+								) : (
+									<span>Рейтинг отсутствует</span>
+								)}
 							</div>
 						</div>
 						<p className='px-3 text-xs opacity-60'>{movie.description}</p>
@@ -75,8 +79,10 @@ const Movie = () => {
 											/>
 											<div className='flex flex-col gap-2'>
 												<span className='font-medium'>{staff.nameRu}</span>
-												<span className='text-xs opacity-60'>
-													{staff.professionText}
+												<span className='text-xs opacity-60 w-[180px] whitespace-pre-wrap'>
+													{staff.description
+														? staff.description
+														: staff.professionText}
 												</span>
 											</div>
 										</div>
