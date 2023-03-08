@@ -15,7 +15,7 @@ function App() {
 			.get(
 				'https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1',
 				{
-					headers: { 'X-API-KEY': '21a4979f-0100-4037-9d9b-8a2204f81150' },
+					headers: { 'X-API-KEY': '754e24f2-5197-4634-96eb-c9026d9fc031' },
 				}
 			)
 			.then(res => setMovies(res.data.films))

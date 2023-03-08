@@ -7,6 +7,7 @@ import Rate from '../../UI/Rate'
 const Movie = () => {
 	const [movie, setMovie] = useState(null)
 	const [staffs, setStaffs] = useState([])
+	const [arts, setArts] = useState([])
 	const getRate = rating => {
 		if (rating > 7) {
 			return 'good_rate'
@@ -21,14 +22,22 @@ const Movie = () => {
 	useEffect(() => {
 		axios
 			.get(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}`, {
-				headers: { 'X-API-KEY': '21a4979f-0100-4037-9d9b-8a2204f81150' },
+				headers: { 'X-API-KEY': '754e24f2-5197-4634-96eb-c9026d9fc031' },
 			})
 			.then(res => setMovie(res.data))
 		axios
 			.get(`https://kinopoiskapiunofficial.tech/api/v1/staff?filmId=${id}`, {
-				headers: { 'X-API-KEY': '21a4979f-0100-4037-9d9b-8a2204f81150' },
+				headers: { 'X-API-KEY': '754e24f2-5197-4634-96eb-c9026d9fc031' },
 			})
 			.then(res => setStaffs(res.data))
+		axios
+			.get(
+				`https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}/images?type=STILL&page=1`,
+				{
+					headers: { 'X-API-KEY': '754e24f2-5197-4634-96eb-c9026d9fc031' },
+				}
+			)
+			.then(res => setArts(res.data.items))
 	}, [])
 	console.log(movie)
 	console.log(staffs)
@@ -54,7 +63,7 @@ const Movie = () => {
 						</div>
 						<p className='px-3 text-xs opacity-60'>{movie.description}</p>
 						<h1 className='px-3 font-bold mb-[10px]'>Актерский состав</h1>
-						<div className='px-3 w-full desktop:hidden whitespace-nowrap overflow-x-scroll overflow-y-hidden'>
+						<div className='px-3 w-full pb-4 desktop:hidden whitespace-nowrap overflow-x-scroll overflow-y-hidden'>
 							{staffs &&
 								staffs.map(staff => {
 									return (
@@ -74,10 +83,27 @@ const Movie = () => {
 									)
 								})}
 						</div>
+						<h1 className='px-3 font-bold mb-[10px]'>Кадры</h1>
+						<div className='px-3 w-full pb-4 desktop:hidden whitespace-nowrap overflow-x-scroll overflow-y-hidden'>
+							{arts &&
+								arts.map(art => {
+									return (
+										<div className='w-full inline-block'>
+											<img
+												className='rounded-lg w-[350px] h-[250px] object-cover mr-[20px] mb-[15px]'
+												src={art.imageUrl}
+												alt=''
+											/>
+										</div>
+									)
+								})}
+						</div>
 					</div>
 				</>
 			) : (
-				<h1>Запрос к Кинопоиску...</h1>
+				<div className='w-full h-[500px] flex flex-col items-center justify-center'>
+					<h1 className='font-bold text-xl'>Запрос к Кинопоиску...</h1>
+				</div>
 			)}
 		</div>
 	)
