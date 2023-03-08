@@ -1,6 +1,21 @@
 {
-	"routes": [
-		{ "src": "/", "dest": "/" },
-		{ "src": "/popular", "dest": "/" }
+	"rewrites": [
+		{ "source": "/", "destination": "/" },
+		{ "source": "/popular", "destination": "/" },
+		{
+			"source": "/proxy/:match*",
+			"destination": "https://example.com/:match*"
+		},
+		{
+			"source": "/:path((?!uk/).*)",
+			"has": [
+				{
+					"type": "header",
+					"key": "x-vercel-ip-country",
+					"value": "GB"
+				}
+			],
+			"destination": "/uk/:path*"
+		}
 	]
 }
