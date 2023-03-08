@@ -1,0 +1,22 @@
+@import url('/public/fonts/gilroy.css');
+@import url('/public/fonts/sfpro.css');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1 {
+	font-family: 'Gilroy', sans-serif;
+}
+
+body {
+	font-family: 'SFProText', serif;
+	background-color: #fff;
+}
+
+.active {
+	color: red;
+}
+
+.gilroy {
+	font-family: 'Gilroy', sans-serif;
+}
