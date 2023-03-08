@@ -84,8 +84,8 @@ const Movie = () => {
 								})}
 						</div>
 						<h1 className='px-3 font-bold mb-[10px]'>Кадры</h1>
-						<div className='px-3 w-full pb-4 desktop:hidden whitespace-nowrap overflow-x-scroll overflow-y-hidden'>
-							{arts &&
+						<div className='px-3 w-full pb-4 mobile:block desktop:hidden whitespace-nowrap overflow-x-scroll overflow-y-hidden'>
+							{arts.length > 0 ? (
 								arts.map(art => {
 									return (
 										<div className='w-full inline-block'>
@@ -96,7 +96,12 @@ const Movie = () => {
 											/>
 										</div>
 									)
-								})}
+								})
+							) : (
+								<div className='w-full px-3 flex flex-col justify-center items-center h-[250px] rounded-lg border'>
+									<h1 className='font-medium opacity-60'>Данные отсутствуют</h1>
+								</div>
+							)}
 						</div>
 					</div>
 				</>
