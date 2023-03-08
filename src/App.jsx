@@ -28,7 +28,7 @@ function App() {
 					<div className='flex mobile:m-0 mobile:flex-col desktop:flex-row desktop:flex-wrap mobile:gap-10 desktop:gap-20'>
 						{movies.map(movie => {
 							return (
-								<Link to={`/movie/${filmId}`}>
+								<Link to={`/movie/${movie.filmId}`}>
 									<Movie
 										title={movie.nameRu}
 										enTitle={movie.nameEn}
