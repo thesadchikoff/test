@@ -45,7 +45,7 @@ const Movie = () => {
 		<div>
 			{movie ? (
 				<>
-					<div className='flex flex-col gap-5 pb-10'>
+					<div className='w-full flex flex-col gap-5 pb-10'>
 						<img
 							className='mobile:w-full desktop:w-[400px]'
 							src={movie.posterUrl}
@@ -108,6 +108,13 @@ const Movie = () => {
 									<h1 className='font-medium opacity-60'>Данные отсутствуют</h1>
 								</div>
 							)}
+						</div>
+						<div className='w-full'>
+							<iframe
+								width='100%'
+								height='100%'
+								src='https://www.youtube.com/watch?v=Zw1yQ1uuq7Y'
+								frameborder='0'></iframe>
 						</div>
 					</div>
 				</>
