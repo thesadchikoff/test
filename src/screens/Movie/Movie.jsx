@@ -3,11 +3,11 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import './Movie.scss'
 import Rate from '../../UI/Rate'
-
 const Movie = () => {
 	const [movie, setMovie] = useState(null)
 	const [staffs, setStaffs] = useState([])
 	const [arts, setArts] = useState([])
+	const [videos, setVideos] = useState([])
 	const getRate = rating => {
 		if (rating > 7) {
 			return 'good_rate'
@@ -26,15 +26,20 @@ const Movie = () => {
 			})
 			.then(res => setMovie(res.data))
 		axios
-			.get(`https://kinopoiskapiunofficial.tech/api/v1/staff?filmId=${id}`, {
+			.get(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}/videos`, {
 				headers: { 'X-API-KEY': '754e24f2-5197-4634-96eb-c9026d9fc031' },
+			})
+			.then(res => setVideos(res.data))
+		axios
+			.get(`https://kinopoiskapiunofficial.tech/api/v1/staff?filmId=${id}`, {
+				headers: { 'X-API-KEY': '21a4979f-0100-4037-9d9b-8a2204f81150' },
 			})
 			.then(res => setStaffs(res.data))
 		axios
 			.get(
 				`https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}/images?type=STILL&page=1`,
 				{
-					headers: { 'X-API-KEY': '754e24f2-5197-4634-96eb-c9026d9fc031' },
+					headers: { 'X-API-KEY': '21a4979f-0100-4037-9d9b-8a2204f81150' },
 				}
 			)
 			.then(res => setArts(res.data.items))
@@ -109,13 +114,12 @@ const Movie = () => {
 								</div>
 							)}
 						</div>
-						<div className='w-full'>
-							<iframe
-								width='100%'
-								height='100%'
-								src='https://www.youtube.com/watch?v=Zw1yQ1uuq7Y'
-								frameborder='0'></iframe>
-						</div>
+						{/*<div className='w-full'>*/}
+						{/*	<iframe width="560" height="315" src="https://www.youtube.com/embed/Zw1yQ1uuq7Y"*/}
+						{/*			title="YouTube video player" frameBorder="0"*/}
+						{/*			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"*/}
+						{/*			allowFullScreen></iframe>*/}
+						{/*</div>*/}
 					</div>
 				</>
 			) : (

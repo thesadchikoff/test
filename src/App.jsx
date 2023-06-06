@@ -7,6 +7,7 @@ import { Link, NavLink } from 'react-router-dom'
 import Movie from './components/Movie/Movie'
 import Telegram from './UI/Telegram'
 import Header from './components/Header/Header'
+import LogoPartner from "./components/LogoPartner/LogoPartner.jsx";
 
 function App() {
 	const [movies, setMovies] = useState([])
@@ -24,6 +25,10 @@ function App() {
 	return (
 		<div className='py-[30px]'>
 			<Container>
+				<div className={'p-5 flex items-center gap-2 justify-center mb-10 border-gradient '}>
+					<span className={'text-slate-400 font-medium'}>Created by </span>
+					<LogoPartner/>
+				</div>
 				{movies && (
 					<div className='flex mobile:m-0 mobile:flex-col desktop:flex-row desktop:flex-wrap mobile:gap-10 desktop:gap-20'>
 						{movies.map(movie => {
